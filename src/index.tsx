@@ -23,12 +23,10 @@ export const MinecraftSkinViewer = ({
   control,
   background
 }: MinecraftSkinViewerProps) => {
-  const skinViewer = React.useRef<SkinViewer>()
-
   const canvas = React.useRef<HTMLCanvasElement>(null)
 
   React.useLayoutEffect(() => {
-    skinViewer.current = new SkinViewer({
+    const skinViewer = new SkinViewer({
       skin,
       width,
       height,
@@ -37,23 +35,21 @@ export const MinecraftSkinViewer = ({
     })
 
     // View control
-    const viewerControl = createOrbitControls(skinViewer.current)
-
-    viewerControl.enablePan = false
-    viewerControl.enableZoom = true
-    viewerControl.enableRotate = true
+    let viewerControl: any
 
     if (control) {
-      viewerControl.enableZoom = false
-      viewerControl.enableRotate = false
+      viewerControl = createOrbitControls(skinViewer)
+      viewerControl.enablePan = false
+      viewerControl.enableZoom = true
+      viewerControl.enableRotate = true
     }
 
     // Animations
     if (walk) {
-      skinViewer.current.animations.add(WalkingAnimation)
+      skinViewer.animations.add(WalkingAnimation)
     }
-    // const rotate = skinViewer.current.animations.add(skinview3d.RotatingAnimation);
-    // const run = skinViewer.current.animations.add(skinview3d.RunningAnimation);
+    // const rotate = skinViewer.animations.add(skinview3d.RotatingAnimation);
+    // const run = skinViewer.animations.add(skinview3d.RunningAnimation);
     // Set the speed of an animation
     // run.speed = 3;
     // Pause single animation
@@ -62,11 +58,11 @@ export const MinecraftSkinViewer = ({
     // skinViewer.animations.paused = true;
 
     return () => {
-      viewerControl.dispose()
-
-      if (skinViewer.current) {
-        skinViewer.current.dispose()
+      if (control) {
+        viewerControl.dispose()
       }
+
+      skinViewer.dispose()
     }
   }, [skin, width, height, control, walk, background])
 
