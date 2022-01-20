@@ -1870,6 +1870,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.20.42.tgz#2f021733232c2130c26f9eabbdd3bfd881774733"
   integrity sha512-aI3/oo5DzyiI5R/xAhxxRzfZlWlsbbqdgxfTPkqu/Zt+23GXiJvMCyPJT4+xKSXOnLqoL8jJYMLTwvK2M3a5hw==
 
+"@types/offscreencanvas@^2019.6.4":
+  version "2019.6.4"
+  resolved "https://registry.yarnpkg.com/@types/offscreencanvas/-/offscreencanvas-2019.6.4.tgz#64f6d120b53925028299c744fcdd32d2cd525963"
+  integrity sha512-u8SAgdZ8ROtkTF+mfZGOscl0or6BSj9A4g37e6nvxDc+YB/oDut0wHkK2PBBiC2bNR8TS0CPV+1gAk4fNisr1Q==
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -1956,6 +1961,11 @@
     "@types/react-dom" "*"
     "@types/testing-library__dom" "*"
     pretty-format "^25.1.0"
+
+"@types/three@^0.136.1":
+  version "0.136.1"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.136.1.tgz#030fc01cdc5ce82cad93db17b94a24515cb4b50e"
+  integrity sha512-gzTw6RR4dU8sGf+RpLBWWKHRVIJ4gwKVQPk+IFCgha04Efg/itXYUalX6iBcYeSmaDu0qE5M7uTq0XLQpU4FAg==
 
 "@types/yargs-parser@*":
   version "20.2.1"
@@ -10620,6 +10630,22 @@ sisteransi@^1.0.5:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
 
+skinview-utils@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/skinview-utils/-/skinview-utils-0.6.2.tgz#1247aef71c472e963fd3f0db3494f18d63e31e51"
+  integrity sha512-UdjWwXCVZobtG+dc7ilvMRbtXYSqPJtWKPFdgWc44Gs4aoOmZML2lErr77h7uussXo9zrcR+fPizGshGpdETvQ==
+  dependencies:
+    "@types/offscreencanvas" "^2019.6.4"
+
+skinview3d@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/skinview3d/-/skinview3d-2.2.0.tgz#32338b603ff13cbef37858fa7b3b77bc9369c6a5"
+  integrity sha512-qVd61WHaYHJylo9/wQouYHm+zS9M92vC4y3/UJbCeJ/KqQ8FxahX4WHcIAaNxoBegoIWtbXJGE8Y1DoYgDxEiw==
+  dependencies:
+    "@types/three" "^0.136.1"
+    skinview-utils "^0.6.2"
+    three "^0.136.0"
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
@@ -11239,6 +11265,11 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+three@^0.136.0:
+  version "0.136.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.136.0.tgz#b1504db021b46398ef468aa7849f3dcabb814f50"
+  integrity sha512-+fEMX7nYLz2ZesVP/dyifli5Jf8gR3XPAnFJveQ80aMhibFduzrADnjMbARXh8+W9qLK7rshJCjAIL/6cDxC+A==
 
 throat@^4.0.0:
   version "4.1.0"
