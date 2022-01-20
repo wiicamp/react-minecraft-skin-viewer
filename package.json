@@ -1,6 +1,6 @@
 {
   "name": "@wiicamp/react-minecraft-skin-viewer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Minecraft skin viewer for ReactJS",
   "author": "lampn9397",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
