@@ -1,19 +1,28 @@
 import React from 'react'
-import { SkinViewer, createOrbitControls } from 'skinview3d'
+import { SkinViewer, createOrbitControls, WalkingAnimation } from 'skinview3d'
 
-interface Props {
+export const defaultProps = {
+  walk: false,
+  control: true
+}
+
+export type MinecraftSkinViewerProps = {
   skin: string
   width: number
   height: number
+  walk: boolean
+  control: boolean
   background: string
-}
+} & typeof defaultProps
 
 export const MinecraftSkinViewer = ({
   skin,
   width,
   height,
+  walk,
+  control,
   background
-}: Props) => {
+}: MinecraftSkinViewerProps) => {
   const skinViewer = React.useRef<SkinViewer>()
 
   const canvas = React.useRef<HTMLCanvasElement>(null)
@@ -30,12 +39,19 @@ export const MinecraftSkinViewer = ({
     // View control
     const viewerControl = createOrbitControls(skinViewer.current)
 
-    viewerControl.enableRotate = true
-    viewerControl.enableZoom = false
     viewerControl.enablePan = false
+    viewerControl.enableZoom = true
+    viewerControl.enableRotate = true
+
+    if (control) {
+      viewerControl.enableZoom = false
+      viewerControl.enableRotate = false
+    }
 
     // Animations
-    // const walk = skinViewer.current.animations.add(WalkingAnimation);
+    if (walk) {
+      skinViewer.current.animations.add(WalkingAnimation)
+    }
     // const rotate = skinViewer.current.animations.add(skinview3d.RotatingAnimation);
     // const run = skinViewer.current.animations.add(skinview3d.RunningAnimation);
     // Set the speed of an animation
@@ -52,7 +68,7 @@ export const MinecraftSkinViewer = ({
         skinViewer.current.dispose()
       }
     }
-  }, [skin, width, height, background])
+  }, [skin, width, height, control, walk, background])
 
   return <canvas ref={canvas} />
 }
