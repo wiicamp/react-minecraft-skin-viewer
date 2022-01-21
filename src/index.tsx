@@ -68,3 +68,5 @@ export const MinecraftSkinViewer = ({
 
   return <canvas ref={canvas} />
 }
+
+MinecraftSkinViewer.defaultProps = defaultProps
